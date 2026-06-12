@@ -19,6 +19,11 @@ RC_MIN = 988
 RC_CENTER = 1500
 RC_MAX = 2011
 
+# 토글 스위치 상태 저장 변수 (초기값은 None)
+RC_TOGGLE = None
+prev_btn_up = 0
+prev_btn_down = 0
+
 # 헤드트래커 채널 설정 (기기마다 다를 수 있으므로 필요시 수정)
 HT_TILT_INDEX = 4     # 헤드트래커 신호의 1번 채널을 Tilt로 간주
 HT_PAN_INDEX = 5      # 헤드트래커 신호의 2번 채널을 Pan으로 간주
@@ -127,9 +132,19 @@ def axis_to_rc(axis_val):
         return int(RC_CENTER + axis_val * (RC_CENTER - RC_MIN))
 
 def get_toggle_state(btn_up, btn_down):
-    if btn_up: return RC_MIN
-    elif btn_down: return RC_MAX
-    return RC_CENTER
+    global RC_TOGGLE, prev_btn_up, prev_btn_down
+    
+    # Rising Edge 감지 (버튼이 눌렀을 때만 처리)
+    if btn_up and not prev_btn_up:
+        RC_TOGGLE = RC_MIN
+    elif btn_down and not prev_btn_down:
+        RC_TOGGLE = RC_MAX
+    
+    # 현재 상태 저장 (다음 프레임에서 비교용)
+    prev_btn_up = btn_up
+    prev_btn_down = btn_down
+    
+    return RC_TOGGLE if RC_TOGGLE is not None else RC_CENTER
 
 def main():
     pi = pigpio.pi()
