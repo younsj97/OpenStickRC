@@ -16,6 +16,9 @@ Support
 
 ---
 
+## Syetem Structure
+![pic0](https://github.com/younsj97/OpenStickRC/blob/main/etc/system_structure.jpg)
+
 ## Full Build Tutuorial is comming soon
 
 ---
