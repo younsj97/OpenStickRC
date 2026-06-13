@@ -9,16 +9,13 @@ Support
 - Thrustmaster TWCS
 
 ---
-
 ## Software Setup Tutuorial
   - [한국어](https://vudev.notion.site/OpenStickRC-3676ea6262ea817d98b4f4ea3f749101?source=copy_link)
   - [English](https://vudev.notion.site/New-OpenStickRC-setup-English-37d6ea6262ea807aaef0d68a4672dd5e?source=copy_link)
 
 ---
-
-## Syetem Structure
+## System Structure
 ![pic0](https://github.com/younsj97/OpenStickRC/blob/main/etc/system_structure.jpg)
 
-## Full Build Tutuorial is comming soon
-
 ---
+## Full Build Tutuorial is comming soon
